@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	
+	</style>
+</head>
+<body>
+	<div class="tabs" id="tabs1">
+        <ul class="tabs-nav">
+            <li class="active"><a href="javascript:;">折扣</a></li>
+            <li><a href="javascript:;">活动</a></li>
+            <li><a href="javascript:;">优惠</a></li>
+            <li><a href="javascript:;">其他</a></li>
+        </ul>
+        <div class="tabs-cnt">
+            <div class="tabs-content">
+                11111111
+            </div>
+            <div class="tabs-content">
+                2222
+            </div>
+            <div class="tabs-content">
+                3333
+            </div>
+            <div class="tabs-content">
+                4444
+            </div>
+        </div>
+    </div>
+ 
+	<script type="text/javascript">
+		var canvas = document.body.appendChild(document.createElement("canvas"));
+			var context = canvas.getContext("2d");
+			var t = 0;
+			var w, h;
+			context.globalCompositeOperation = "lighter";
+			window.addEventListener("resize", resize, false);
+			resize();
+			animate();
+			function resize() {
+			w = canvas.width = window.innerWidth;
+			h = canvas.height = window.innerHeight;
+			}
+
+			function animate() {
+			 context.clearRect(0,0,w,h);
+			 t += 0.1;
+			 for(var i = 0; i<10000; i++) {
+			 var f = 0.05 + ((Math.sin(t*0.00002)/Math.PI) *0.2);
+			 var r = (Math.min(w,h))*(Math.cos((t+i)*f)/Math.PI * 1.5);
+			 var x = Math.sin(i) * r+(canvas.width/2);
+			 var y = Math.cos(i)* r +(canvas.height/2);
+			 context.fillStyle = "rgba(0,255,255,0.5)";
+			 context.fillRect(x,y,1.5,1.5);
+			 }
+			 setTimeout(animate, 16);
+			}
+
+
+
+	</script>
+
+
+</body>
+</html>
